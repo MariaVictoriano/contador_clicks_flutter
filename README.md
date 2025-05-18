@@ -1,16 +1,15 @@
-# contador_clicks
+# Contador de Clicks en Flutter
 
-A new Flutter project.
+Aplicación sencilla en Flutter que permite contar clicks con tres botones:
 
-## Getting Started
+- + Incrementar
+- - Decrementar (no baja de 0)
+- Reiniciar
 
-This project is a starting point for a Flutter application.
+## Cómo ejecutar
 
-A few resources to get you started if this is your first Flutter project:
+Para ejecutar la aplicación en el navegador con:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter run -d chrome
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
