@@ -2,8 +2,8 @@
 
 Aplicación sencilla en Flutter que permite contar clicks con tres botones:
 
-- + Incrementar
-- - Decrementar (no baja de 0)
+- `+` Incrementar
+- `-` Decrementar (no baja de 0)
 - Reiniciar
 
 ## Cómo ejecutar
