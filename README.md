@@ -13,8 +13,7 @@ Aplicación sencilla en Flutter que permite contar clicks con tres botones:
 ```bash
 flutter run -d chrome
 
-2: Clonar el repositorio desde GitHub:
-```bash
+###2: Clonar el repositorio desde GitHub:
 git clone https://github.com/MariaVictoriano/ContadorClicks_flutter.git
 cd ContadorClicks_flutter
 flutter pub get
