@@ -8,13 +8,17 @@ Aplicación sencilla en Flutter que permite contar clicks con tres botones:
 
 ## Cómo ejecutar
 
-### 1. Para ejecutar la aplicación en el navegador si el proyecto ya está descargado:
+### 1.Para ejecutar la aplicación en un emulador:
+```bash
+flutter run
+```
+### 2. Para ejecutar la aplicación en el navegador si el proyecto ya está descargado:
 
 ```bash
 flutter run -d chrome
 ```
 
-### 2. Clonar el repositorio desde GitHub:
+### 3. Clonar el repositorio desde GitHub:
 
 ```bash
 git clone https://github.com/MariaVictoriano/ContadorClicks_flutter.git
