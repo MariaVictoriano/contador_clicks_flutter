@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const ContadorClicksApp());
@@ -11,7 +12,12 @@ class ContadorClicksApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Contador de Clicks',
-      theme: ThemeData(primarySwatch: Colors.green),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        textTheme: GoogleFonts.antonTextTheme(),
+
+      ),
       home: const PaginaContadorClicks(),
     );
   }
@@ -50,31 +56,78 @@ class _PaginaContadorClicksState extends State<PaginaContadorClicks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Contador de Clicks'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              '$_contador ${_contador == 1 ? 'clic' : 'clics'}',
-              style: const TextStyle(fontSize: 30),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(onPressed: _incrementar, child: const Text('+')),
-                const SizedBox(width: 10),
-                ElevatedButton(onPressed: _disminuir, child: const Text('-')),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: _reiniciar,
-                  child: const Text('Reiniciar'),
+      backgroundColor: const Color(0xFFFDF4FF),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat, 
+      body: Column(
+        children: [
+          // Encabezado morado
+          Container(
+            width: double.infinity,
+            color: Colors.purple,
+            padding: const EdgeInsets.only(top: 65, bottom: 20),
+            child: Center(
+              child: Text(
+                'Contador de Clicks',
+                style: GoogleFonts.lobster(
+                  color: Colors.white,
+                  fontSize: 30,
+                 
                 ),
-              ],
+              ),
+            ),
+          ),
+
+          
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 250, 249, 245),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '$_contador',
+                      style:GoogleFonts.lobster(
+                        fontSize: 100,
+                        fontWeight: FontWeight.w100,
+                      ),
+                    ),
+                    Text(
+                      'Click${_contador == 1 ? '' : 's'}',
+                      style: GoogleFonts.lobster(
+                        fontSize: 40,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 80),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomButton(
+                icon: Icons.remove,
+                onPressed: _disminuir,
+                backgroundColor: const Color(0xB8DE7EF7)),
+            const SizedBox(width: 10),
+            CustomButton(
+              icon: Icons.refresh,
+              onPressed: _reiniciar,
+              backgroundColor: const Color(0xB8DE7EF7),
+            ),
+            const SizedBox(width: 10),
+            CustomButton(
+              icon: Icons.add,
+              onPressed: _incrementar,
+              backgroundColor: const Color(0xB8DE7EF7),
             ),
           ],
         ),
@@ -82,3 +135,33 @@ class _PaginaContadorClicksState extends State<PaginaContadorClicks> {
     );
   }
 }
+
+class CustomButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback onPressed;
+  final Color? backgroundColor;
+  final Color? hoverColor;
+
+  const CustomButton({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+    this.backgroundColor = const Color(0xB8DE7EF7),
+    this.hoverColor = const Color.fromARGB(255, 255, 77, 246),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 60,  
+      height: 60, 
+      child: FloatingActionButton(
+        onPressed: onPressed,
+        backgroundColor: backgroundColor,
+        hoverColor: hoverColor,
+        child: Icon(icon, size: 36, color: Colors.white),
+      ),
+    );
+  }
+}
+
